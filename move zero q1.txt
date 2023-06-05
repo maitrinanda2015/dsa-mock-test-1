@@ -1,0 +1,38 @@
+public class Solution {
+    public void moveZeroes(int[] nums) {
+        int n = nums.length;
+        int lastNonZeroIndex = 0;
+
+        // Move all non-zero elements to the front
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != 0) {
+                nums[lastNonZeroIndex++] = nums[i];
+            }
+        }
+
+        // Fill the remaining elements with zeros
+        while (lastNonZeroIndex < n) {
+            nums[lastNonZeroIndex++] = 0;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums1 = {0, 1, 0, 3, 12};
+        Solution solution1 = new Solution();
+        solution1.moveZeroes(nums1);
+        System.out.print("Output for nums1: ");
+        for (int num : nums1) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        int[] nums2 = {0};
+        Solution solution2 = new Solution();
+        solution2.moveZeroes(nums2);
+        System.out.print("Output for nums2: ");
+        for (int num : nums2) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
